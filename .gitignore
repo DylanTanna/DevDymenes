@@ -1,0 +1,27 @@
+# Visual Studio / .NET
+.vs/
+bin/
+obj/
+
+# Build results
+[Bb]in/
+[Oo]bj/
+
+# User-specific files
+*.user
+*.suo
+*.rsuser
+
+# Cache
+*.cache
+*.log
+
+# Visual Studio Code
+.vscode/
+
+# Rider
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db

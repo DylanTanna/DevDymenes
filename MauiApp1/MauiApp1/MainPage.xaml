@@ -5,33 +5,31 @@
 
     <ScrollView>
 
-        <VerticalStackLayout
-            Padding="20"
-            Spacing="18"
-        >
-            
+        <VerticalStackLayout Padding="20" Spacing="25" >
 
+            <CollectionView ItemsSource="{Binding Tasks}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
 
-        <HorizontalStackLayout
-        Spacing="10"
-        >
+                        <HorizontalStackLayout Spacing="15">
 
-                <CheckBox
-                x:Name="TaskCheckBox"
-                CheckedChanged="OnTaskCheckedChanged"
-                VerticalOptions="Center"
-                />
+                            <CheckBox
+                            IsChecked="{Binding Concluida}"
+                            VerticalOptions="Center" 
+                            />
 
-                <Label
-              
-                x:Name="TaskLabel"
-                Text="Estudar Maui"
-                FontSize="18" 
-                VerticalOptions="Center"
-                />
+                            <Label
+                            Text="{Binding Titulo}"
+                            FontSize="18"
+                            VerticalOptions="Center" 
+                            />
 
+                        </HorizontalStackLayout>
 
-            </HorizontalStackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
         </VerticalStackLayout>
     </ScrollView>
 

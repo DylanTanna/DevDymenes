@@ -1,27 +1,26 @@
-﻿namespace MauiApp1
+﻿using System.Collections.ObjectModel;
+
+namespace MauiApp1
 {
     public partial class MainPage : ContentPage
     {
-        int count = 0;
+
+        public ObservableCollection<TaskItem> Tasks { get; set; }
 
         public MainPage()
         {
             InitializeComponent();
-        }
 
-        private async void OnTaskCheckedChanged(object sender, CheckedChangedEventArgs e)
-        {
-
-            if (e.Value)
+            Tasks = new ObservableCollection<TaskItem>
             {
-                TaskLabel.TextDecorations = TextDecorations.Strikethrough;
+                new TaskItem { Titulo = "Estudar MAUI", Concluida = false },
+                new TaskItem { Titulo = "Multiplas tasks", Concluida = true },
+                new TaskItem { Titulo = "Commit", Concluida = false }
+            };
 
-                await DisplayAlert("Task Completa", "Você concluiu a tarefa, parabens!", "OK");
-            }
-            else
-            {
-                TaskLabel.TextDecorations = TextDecorations.None;
-            }
+             BindingContext = this;
+
         }
+        
     }
 }

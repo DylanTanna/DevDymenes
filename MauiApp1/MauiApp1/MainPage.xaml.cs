@@ -9,16 +9,19 @@
             InitializeComponent();
         }
 
-        private void OnCounterClicked(object? sender, EventArgs e)
+        private async void OnTaskCheckedChanged(object sender, CheckedChangedEventArgs e)
         {
-            count++;
 
-            if (count == 1)
-                CounterBtn.Text = $"Clicked {count} time";
+            if (e.Value)
+            {
+                TaskLabel.TextDecorations = TextDecorations.Strikethrough;
+
+                await DisplayAlert("Task Completa", "Você concluiu a tarefa, parabens!", "OK");
+            }
             else
-                CounterBtn.Text = $"Clicked {count} times";
-
-            SemanticScreenReader.Announce(CounterBtn.Text);
+            {
+                TaskLabel.TextDecorations = TextDecorations.None;
+            }
         }
     }
 }
